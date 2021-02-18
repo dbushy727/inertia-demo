@@ -1,12 +1,16 @@
 import React from 'react';
-import { Heading, Text, Pane, majorScale } from 'evergreen-ui';
+import { Text, Pane, majorScale, ArrowLeftIcon } from 'evergreen-ui';
 import Layout from '../../../Shared/Layout';
 import { UserType } from 'Shared/ResourceTypes/user';
 import { sample } from 'lodash'
+import { InertiaLink } from '@inertiajs/inertia-react'
+import route from 'ziggy';
+import { Name } from './style';
 
 export default ({ user }: { user: UserType }) => {
   return (
   	<Layout>
+      <InertiaLink href={route('users.index')}><ArrowLeftIcon /></InertiaLink>
   		<Pane
   			display="flex"
   			alignItems="center"
@@ -16,10 +20,10 @@ export default ({ user }: { user: UserType }) => {
         marginTop={majorScale(2)}
   		>
         <Pane>
-      		<Heading size={900}>
+      		<Name size={900}>
             {user.name}
-          </Heading>
-            <Text>{sample(user.quotes)}</Text>
+          </Name>
+          <Text>{sample(user.quotes)}</Text>
         </Pane>
         <img src={user.image} />
   		</Pane>

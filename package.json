@@ -36,6 +36,7 @@
         "@inertiajs/progress": "^0.2.4",
         "@types/lodash": "^4.14.168",
         "@types/react": "^17.0.2",
+        "@types/ziggy-js": "^1.0.0",
         "evergreen-ui": "^5.1.2",
         "query-string": "^6.13.8",
         "radiance-ui": "^16.4.0",

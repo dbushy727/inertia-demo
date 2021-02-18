@@ -23,5 +23,8 @@ mix.ts('resources/js/app.js', 'public/js')
         ],
       }
     })
-    .sourceMaps();
+    .sourceMaps()
+    .alias({
+      ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
+    });
 
