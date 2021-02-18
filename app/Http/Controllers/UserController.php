@@ -12,12 +12,17 @@ class UserController extends Controller
     public function index(Request $request)
     {
     	$searchTerm = $request->get('searchTerm');
+        $sortDirection = $request->get('sortDirection');
 
     	$users = User::query()
     		->when(
     			$searchTerm,
-    			fn ($query) => $query->search(['name', 'email'], $searchTerm)
+    			fn ($query) => $query->search('name', $searchTerm)
     		)
+            ->when(
+                $sortDirection,
+                fn ($query) => $query->orderBy('name', $sortDirection)
+            )
             ->paginate(10);
 
         if ($searchTerm) {

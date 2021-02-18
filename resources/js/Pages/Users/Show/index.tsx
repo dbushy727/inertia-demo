@@ -1,23 +1,27 @@
 import React from 'react';
-import { Heading, Text, Paragraph, Pane, majorScale } from 'evergreen-ui';
+import { Heading, Text, Pane, majorScale } from 'evergreen-ui';
 import Layout from '../../../Shared/Layout';
 import { UserType } from 'Shared/ResourceTypes/user';
+import { sample } from 'lodash'
 
 export default ({ user }: { user: UserType }) => {
   return (
   	<Layout>
-  		<Heading size={900}>
-        {user.name} <Text color="muted">{user.email}</Text>
-      </Heading>
   		<Pane
   			display="flex"
   			alignItems="center"
   			justifyContent="center"
-  			border="default"
+  			border="none"
   			padding={majorScale(3)}
         marginTop={majorScale(2)}
   		>
-      		<Paragraph>{user.bio}</Paragraph>
+        <Pane>
+      		<Heading size={900}>
+            {user.name}
+          </Heading>
+            <Text>{sample(user.quotes)}</Text>
+        </Pane>
+        <img src={user.image} />
   		</Pane>
   	</Layout>
   );

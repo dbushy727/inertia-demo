@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Quote;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(50)->create();
+    	collect(config('simpsons'))->each(function ($simpson) {
+    		$user = User::firstOrCreate([
+    			'name' => $simpson['name'],
+    			'image' => $simpson['image'],
+    		]);
+
+    		Quote::create([
+    			'user_id' => $user->id,
+    			'quote' => $simpson['quote'],
+    		]);
+    	});
     }
 }
