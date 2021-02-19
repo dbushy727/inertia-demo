@@ -3,6 +3,7 @@ import { Inertia } from '@inertiajs/inertia'
 import { debounce } from 'lodash';
 import { Pane, Table, ArrowDownIcon, ArrowUpIcon } from 'evergreen-ui';
 import queryString from 'query-string';
+import route from 'ziggy';
 
 import Layout from 'Shared/Layout';
 import Pagination from 'Shared/Pagination';
@@ -34,7 +35,6 @@ export default ({ users: paginatedUsers }: IndexPropsType) => {
 
   const viewUser = (user: UserType) => {
     Inertia.get(
-      // @ts-ignore
       route('users.show', { user: user.id }),
     );
   };
