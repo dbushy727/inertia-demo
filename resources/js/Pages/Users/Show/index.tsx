@@ -15,6 +15,7 @@ export default ({ user }: { user: UserType }) => {
   			display="flex"
   			alignItems="center"
   			justifyContent="center"
+        flexWrap="wrap-reverse"
   			border="none"
   			padding={majorScale(3)}
         marginTop={majorScale(2)}
