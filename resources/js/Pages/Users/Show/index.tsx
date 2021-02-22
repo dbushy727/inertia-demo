@@ -20,7 +20,7 @@ export default ({ user }: { user: UserType }) => {
   			padding={majorScale(3)}
         marginTop={majorScale(2)}
   		>
-        <Pane>
+        <Pane maxWidth={majorScale(40)} margin={majorScale(2)}>
       		<Name size={900}>
             {user.name}
           </Name>
